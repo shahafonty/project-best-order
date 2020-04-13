@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}">
+    <title>edit task {{ task_id }}</title>
+</head>
+<body>
+<div class="title">
+<h1>Edit task</h1>
+</div>
+<div class="content">
+<form action="" method="POST">
+
+    <p>
+        Task_name = <input type="text" name = "task_name" value="{{ task_name }}c">
+    </p>
+    <p>
+        Task_description = <input type="text" name = "task_description" value="{{ task_description }}" size="150">
+    </p>
+    <p>
+        <label for="task_priority">Priority:</label><br>
+        <select name = "task_priority">
+                            <option selected value="{{ current_priority }}">{{ current_priority }}</option>
+                            {% for number in range(6): %}
+                                <option value="{{ number }}">{{ number }}</option>
+                            {% endfor %}
+                        </select>
+    </p>
+    <p>
+        Task_assignee = <select name = "task_assignee">
+                            <option selected value="current_user">{{ current_user }}</option>
+                            {% for username in assignees: %}
+                                    <option value="username">{{ username }} </option>
+                            {% endfor %}
+                        </select>
+    </p>
+    <p>
+        Task_status :   <select  name = "task_status">
+                            <option value = "Done">done</option>
+                            <option selected value ="Not Done">not_done</option>
+                        </select>
+    </p>
+    <input type="submit">
+
+</form>
+</div>
+<div class="sidebar">
+    <h4>Bestorder</h4><div class="hr"></div><br>
+<p><a href="http://localhost:9191/bestorder">Main</a></p>
+<p><a href="http://localhost:9191/all_assignees">Assignees</a></p>
+<p><a href="http://localhost:9191/all_tasks">All Tasks</a></p>
+</div>
+</body>
+</html>

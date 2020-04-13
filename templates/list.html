@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List {{ list_id }}</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}">
+</head>
+<body>
+<div class="title">
+    <h2><u> {{ list_name }}</u></h2>
+    <h3> {{ list_description }}</h3>
+<form action="" method="post">
+    sort:<select name ="sort">
+            <option value="status">status</option>
+            <option value="priority">priority</option>
+            <option value="id">id</option>
+        </select>
+    <input type="submit">
+</form>
+</div>
+<div class="add_item">
+<a href="http://localhost:9191/{{ list_id }}/new_task"><button type="button" title="Add new task"><img src="https://cdn1.iconfinder.com/data/icons/ios-and-android-line-set-1/52/add__new__button__plus-512.png"></button></a>
+</div>
+    <ol>
+    {% for task in tasks: %}
+        <p>
+            <div class="content">{{ task[0] }}.<a href="/task/{{ task[0] }}">{{ task[1] }}:</a><br>
+        Assignee:<b> {{ task[3] }}</b><br>
+        Priority:<b> {{ task[2] }} </b><br>
+        status:<b>  {{ task[4] }}</b><br>
+        <a href="/edit_task/{{ task[0] }}"><button type="button" title="edit task"><img src="data:image/png;base64,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"></button></a>
+        <a href="/task_done/{{ task[0] }}"><button type="button"  title="Mark done"><img src="https://cdn.clipart.email/3b10379983408d1c7a4a108708be3549_green-check-mark-in-circle-download-png-clipart-submit-button-_860-900.png"></button></a>
+        <a href="/remove_task/{{ task[0] }}"><button type="button"  title="remove task"><img src="https://cdn2.iconfinder.com/data/icons/ios-7-tab-bar-icons/500/trash-512.png"></button></a>
+       </div>
+        </p>
+    {% endfor %}
+    </ol>
+
+
+<div class="sidebar">
+    <h4>Bestorder</h4><div class="hr"></div><br>
+<p><a href="http://localhost:9191/bestorder">Main</a></p>
+<p><a href="http://localhost:9191/all_assignees">Assignees</a></p>
+<p><a href="http://localhost:9191/all_tasks">All Tasks</a></p>
+</div>
+</body>
+</html>

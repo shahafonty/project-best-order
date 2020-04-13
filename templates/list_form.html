@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}">
+    <title>New list</title>
+</head>
+<body>
+<div class="title">
+<h1>Add new list of tasks</h1>
+</div>
+<div class="content">
+<form action="" method="POST">
+
+    <p>
+        list_name = <input type="text" name = "list_name">
+    </p>
+
+    <p>
+        list_description = <input type="text" name = "list_description">
+    </p>
+
+
+    </p>
+    <input type="submit">
+
+</form>
+</div>
+<div class="sidebar">
+    <h4>Bestorder</h4><div class="hr"></div><br>
+<p><a href="http://localhost:9191/bestorder">Main</a></p>
+<p><a href="http://localhost:9191/all_assignees">Assignees</a></p>
+<p><a href="http://localhost:9191/all_tasks">All Tasks</a></p>
+</div>
+</body>
+</html>

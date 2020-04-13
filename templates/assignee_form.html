@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}">
+    <title>New assignee</title>
+</head>
+<body>
+<div class="title">
+<h1>Add new employee</h1>
+<h2> {{ error }}</h2>
+</div>
+<div class="content">
+<form action="" method="POST">
+
+    <p>
+        employee_name = <input type="text" name = "assignee_name">
+    </p>
+    <p>
+        employee_username = <input type="text" name = "assignee_username">
+    </p>
+
+    <input type="submit">
+
+</form>
+</div>
+<div class="sidebar">
+    <h4>Bestorder</h4><div class="hr"></div><br>
+<p><a href="http://localhost:9191/bestorder">Main</a></p>
+<p><a href="http://localhost:9191/all_assignees">Assignees</a></p>
+<p><a href="http://localhost:9191/all_tasks">All Tasks</a></p>
+</div>
+</body>
+</html>
